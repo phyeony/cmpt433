@@ -1,0 +1,90 @@
+Host:
+
+1. ip addr:
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+        valid_lft forever preferred_lft forever
+    2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 00:0c:29:3f:d6:b2 brd ff:ff:ff:ff:ff:ff
+        altname enp2s1
+        inet 192.168.242.128/24 brd 192.168.242.255 scope global dynamic noprefixroute ens33
+        valid_lft 1542sec preferred_lft 1542sec
+        inet6 fe80::a003:88bf:5136:37c1/64 scope link noprefixroute 
+        valid_lft forever preferred_lft forever
+    9: enx8030dc9359be: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
+        link/ether 80:30:dc:93:59:be brd ff:ff:ff:ff:ff:ff
+        inet 192.168.7.1/24 brd 192.168.7.255 scope global dynamic noprefixroute enx8030dc9359be
+        valid_lft 638sec preferred_lft 638sec
+        inet6 fe80::bd16:63f1:9a75:e872/64 scope link noprefixroute 
+        valid_lft forever preferred_lft forever
+    10: enx8030dc9359c0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 80:30:dc:93:59:c0 brd ff:ff:ff:ff:ff:ff
+        inet 192.168.6.1/24 brd 192.168.6.255 scope global dynamic noprefixroute enx8030dc9359c0
+        valid_lft 638sec preferred_lft 638sec
+        inet6 fe80::8230:dcff:fe93:59c0/64 scope link noprefixroute 
+        valid_lft forever preferred_lft forever
+
+2. ping target:
+    PING 192.168.7.1 (192.168.7.1) 56(84) bytes of data.
+    64 bytes from 192.168.7.1: icmp_seq=1 ttl=64 time=3.73 ms
+    64 bytes from 192.168.7.1: icmp_seq=2 ttl=64 time=0.084 ms
+    64 bytes from 192.168.7.1: icmp_seq=3 ttl=64 time=0.078 ms
+    64 bytes from 192.168.7.1: icmp_seq=4 ttl=64 time=0.095 ms
+
+From SSH to target:
+1. ip addr:
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+        valid_lft forever preferred_lft forever
+    2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+        link/ether 20:d7:78:7d:6a:af brd ff:ff:ff:ff:ff:ff
+    3: usb0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 80:30:dc:93:59:bf brd ff:ff:ff:ff:ff:ff
+        inet 192.168.7.2/24 brd 192.168.7.255 scope global usb0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::8230:dcff:fe93:59bf/64 scope link 
+        valid_lft forever preferred_lft forever
+    4: usb1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 80:30:dc:93:59:c1 brd ff:ff:ff:ff:ff:ff
+        inet 192.168.6.2/24 brd 192.168.6.255 scope global usb1
+        valid_lft forever preferred_lft forever
+        inet6 fe80::8230:dcff:fe93:59c1/64 scope link 
+        valid_lft forever preferred_lft forever
+    5: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10
+        link/can 
+    6: can1: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10
+        link/can 
+
+2. ping host:
+    PING 192.168.7.2 (192.168.7.2) 56(84) bytes of data.
+    64 bytes from 192.168.7.2: icmp_seq=1 ttl=64 time=0.350 ms
+    64 bytes from 192.168.7.2: icmp_seq=2 ttl=64 time=0.223 ms
+    64 bytes from 192.168.7.2: icmp_seq=3 ttl=64 time=0.223 ms
+    64 bytes from 192.168.7.2: icmp_seq=4 ttl=64 time=0.222 ms
+3. /proc
+    cat version 
+    Linux version 5.10.140-ti-r52 (voodoo@rpi4b4g-02) (gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2) #1bullseye SMP PREEMPT Sat Oct 8 19:56:05 UTC 2022
+
+    cat uptime
+    15060.56 14653.38
+
+    cat cpuinfo
+    processor	: 0
+    model name	: ARMv7 Processor rev 2 (v7l)
+    BogoMIPS	: 995.32
+    Features	: half thumb fastmult vfp edsp thumbee neon vfpv3 tls vfpd32 
+    CPU implementer	: 0x41
+    CPU architecture: 7
+    CPU variant	: 0x3
+    CPU part	: 0xc08
+    CPU revision	: 2
+
+    Hardware	: Generic AM33XX (Flattened Device Tree)
+    Revision	: 0000
+    Serial		: BBG122061643

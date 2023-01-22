@@ -1,0 +1,167 @@
+
+U-Boot SPL 2022.04-gd0771d53 (Jul 21 2022 - 02:13:23 +0000)
+Trying to boot from MMC2
+
+
+U-Boot 2022.04-gd0771d53 (Jul 21 2022 - 02:13:23 +0000)
+
+CPU  : AM335X-GP rev 2.1
+Model: TI AM335x BeagleBone Black
+DRAM:  512 MiB
+Reset Source: Power-on reset has occurred.
+RTC 32KCLK Source: External.
+Core:  150 devices, 14 uclasses, devicetree: separate
+WDT:   Started wdt@44e35000 with servicing (60s timeout)
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+Loading Environment from EXT4... Board: BeagleBone Black
+<ethaddr> not set. Validating first E-fuse MAC
+BeagleBone Black:
+Model: SeeedStudio BeagleBone Green:
+BeagleBone Cape EEPROM: found EEPROM at address: 0x54
+BeagleBone Cape EEPROM: EEPROM contents not valid (or blank) on address: 0x54
+BeagleBone Cape EEPROM: no EEPROM at address: 0x55
+BeagleBone Cape EEPROM: no EEPROM at address: 0x56
+BeagleBone Cape EEPROM: no EEPROM at address: 0x57
+Net:   eth2: ethernet@4a100000, eth3: usb_ether
+Press SPACE to abort autoboot in 0 seconds
+board_name=[BBG1] ...
+gpio: pin 56 (gpio 56) value is 0
+gpio: pin 55 (gpio 55) value is 0
+gpio: pin 54 (gpio 54) value is 0
+gpio: pin 53 (gpio 53) value is 1
+switch to partitions #0, OK
+mmc1(part 0) is current device
+Scanning mmc 1:1...
+7[r[999;999H[6n8Scanning disk mmc@48060000.blk...
+Disk mmc@48060000.blk not ready
+Scanning disk mmc@481d8000.blk...
+Found 2 disks
+No EFI system partition
+BootOrder not defined
+EFI boot manager: Cannot load any image
+gpio: pin 56 (gpio 56) value is 0
+gpio: pin 55 (gpio 55) value is 0
+gpio: pin 54 (gpio 54) value is 0
+gpio: pin 53 (gpio 53) value is 1
+switch to partitions #0, OK
+mmc1(part 0) is current device
+gpio: pin 54 (gpio 54) value is 1
+Checking for: /uEnv.txt ...
+Checking for: /boot/uEnv.txt ...
+gpio: pin 55 (gpio 55) value is 1
+1713 bytes read in 3 ms (557.6 KiB/s)
+Loaded environment from /boot/uEnv.txt
+Checking if uname_r is set in /boot/uEnv.txt...
+gpio: pin 56 (gpio 56) value is 1
+Running uname_boot ...
+loading /boot/vmlinuz-5.10.140-ti-r52 ...
+10514944 bytes read in 663 ms (15.1 MiB/s)
+debug: [enable_uboot_overlays=1] ...
+debug: [enable_uboot_cape_universal=1] ...
+debug: [uboot_base_dtb_univ=am335x-boneblack-uboot-univ.dtb] ...
+uboot_overlays: [uboot_base_dtb=am335x-boneblack-uboot-univ.dtb] ...
+uboot_overlays: Switching too: dtb=am335x-boneblack-uboot-univ.dtb ...
+loading /boot/dtbs/5.10.140-ti-r52/am335x-boneblack-uboot-univ.dtb ...
+210826 bytes read in 17 ms (11.8 MiB/s)
+i2c_write: error waiting for data ACK (status=0x116)
+Cannot read i2c EEPROM
+Found 0 extension board(s).
+uboot_overlays: [fdt_buffer=0x60000] ...
+uboot_overlays: loading /boot/dtbs/5.10.140-ti-r52/overlays/M-BB-BBG-00A0.dtbo ...
+418 bytes read in 4 ms (101.6 KiB/s)
+uboot_overlays: loading /boot/dtbs/5.10.140-ti-r52/overlays/BB-ADC-00A0.dtbo ...
+645 bytes read in 5 ms (126 KiB/s)
+uboot_overlays: loading /boot/dtbs/5.10.140-ti-r52/overlays/BB-BONE-eMMC1-01-00A0.dtbo ...
+1605 bytes read in 4 ms (391.6 KiB/s)
+loading /boot/initrd.img-5.10.140-ti-r52 ...
+6499095 bytes read in 415 ms (14.9 MiB/s)
+debug: [console=ttyS0,115200n8 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mmcblk1p1 ro rootfstype=ext4 rootwait coherent_pool=1M net.ifnames=0 lpj=1990656 rng_core.default_quality=100 quiet] ...
+debug: [bootz 0x82000000 0x88080000:632b17 88000000] ...
+Kernel image @ 0x82000000 [ 0x000000 - 0xa07200 ]
+## Flattened Device Tree blob at 88000000
+   Booting using the fdt blob at 0x88000000
+   Loading Ramdisk to 8f9cd000, end 8ffffb17 ... OK
+   Loading Device Tree to 8f936000, end 8f9ccfff ... OK
+
+Starting kernel ...
+
+[    0.151051] l3-aon-clkctrl:0000:0: failed to disable
+[    9.816787] debugfs: Directory '49000000.dma' with parent 'dmaengine' already present!
+[    9.849283] gpio-of-helper ocp:cape-universal: Failed to get gpio property of 'P8_03'
+[    9.849313] gpio-of-helper ocp:cape-universal: Failed to create gpio entry
+[   10.418703] omap_voltage_late_init: Voltage driver support not added
+
+
+  _    _ _   _    _                                                      
+ | |  | (_) | |  | |                                                     
+ | |__| |_  | |__| |_   _  ___  ___  _ __  _   _  ___  _   _ _ __   __ _ 
+ |  __  | | |  __  | | | |/ _ / _ | '_ | | | |/ _ | | | | '_  / _` |
+ | |  | | | | |  | | |_| |  __/ (_) | | | | |_| | (_) | |_| | | | | (_| |
+ |_|  |_|_| |_|  |_|__, |___|___/|_| |_|__, |___/ __,_|_| |_|__, |
+                     __/ |                  __/ |                   __/ |
+          55Rdd
+Password: 
+
+
+Login incorrect
+hpa54-beagle login: ^C[?2004l[?2004h[?2004l
+[?2004hdebian@hpa54-beagle:~$ p
+U-Boot SPL 2022.04-gd0771d53 (Jul 21 2022 - 02:13:23 +0000)
+Trying to boot from MMC2
+Reset Source: Power-on reset has occurred.
+RTC 32KCLK Source: External.
+Core:  150 devices, 14 uclasses, devicetree: separate
+WDT:   Started wdt@44e35000 with servicing (60s timeout)
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+Loading Environment from EXT4... BootOrder not defined
+EFI boot manager: Cannot load any image
+0000:0: failed to disable
+[    9.821796] debugfs: Directory '49000000.dma' with parent 'dmaengine' already present!
+[    9.854rty of 'P8_03'
+[    9.854611] gpio-of-helper ocp:cape-universalt added
+
+
+  _    _ _   _    _                                                      
+ | |  | (_) | |  | |                                           __/ |
+                    |___/                  |___/                   |___/ 
+
+Today is Fri Jan 20  2023 07:52:48 @ hpa54-beagle
+hpa54-beagle login: bia    deian   bia
+
+Login incorrect
+hpa54-beagle login: debianPassword: 
+
+Login incorrect
+hpa54-beagle login: debian
+Password: 
+irection!(Press left or right to exit) 
+Get Ready...
+Correct!
+New best time!
+Your reaction time was 2020ms; best soCorrect!
+New best time!
+Your reaction time was 446ms; best so Get Ready...
+Press Up Now!
+Press Up Now!
+Correct!
+New best time!
+Your reaction time was 252ms; best so Get Ready...
+Press Down Now!
+Left or Right was pressed
+[?2004l[?2004hdebian@hpa54-beagle:~$ .[K[K.
+[?2004l[?2004hdebian@hpa54-beagle:~$ 
+[?2004l[?2004hdebian@hpa54-beagle:~$ .d[Ks[K/ssss[K[K[Kcripts/mount0[K-to-i[Knfs. sh
+[?2004l-bash: ////////sssssssssssssssscrriiiiipts/--ttttttttoo---nnnfs.sh: No such file or directory
+[?2004hdebian@hpa54-beagle:~$ .//
+Sorry, try again.
+[sudo] password for debian: 
+e
+[?2004l[?2004hdebian@hpa54-beagle:~$ l
+[?2004lls: cannot access 'mnt/re/m': No such file or directory
+[?2004hdebian@hpa54-beagle:~$  mreo
+[?2004l[?2004hdebian@hpa54-beagle:~$ ls /mnt/remte[Kemote/[?2004hdebian@hpa54-beagle:~$ [?2004hdebian@hpa54-beagle:~$ lsm[K /mnt/emote/
+game               hello              helloworld_target  
+deb
+[?2004lls: cannot access 's': No such file or directory
+/:
+ID.txt  bok.[K[K
